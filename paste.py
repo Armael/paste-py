@@ -23,16 +23,17 @@ from sys import argv
 import codecs
 
 ### Options
-title = 'Paste it §'
-doc = '(<a href="https://github.com/acieroid/paste-py/">doc</a>|<a href="https://raw.github.com/acieroid/paste-py/master/paste.sh">script</a>)'
+title = 'Past-isserie'
+htmltitle = '<img src="/header.png" alt="Past-isserie" title="Past-isserie"/>'
+doc = 'Hosted on macaron<br/>(<a href="http://github.com/Armael/paste-py">doc</a> <a href="/paste.sh">script</a>)'
 filename_path = 'pastes'
-filename_length = 4
+filename_length = 3
 filename_characters = ascii_letters + digits
 mldown_path = '' # if '', disable the mldown option
 mldown_args = []
 linenos_type = 'table' # 'table', 'inline' or '' (table is copy-paste friendly)
 base_url = '/'
-production = False
+production = True
 
 spam = ["buy ", "phentermine", "pill", "cialis", "carisoprodol", "soma ",
         " soma", "carisoprodol", " mg", "30mg", "adipex", "business",
@@ -208,11 +209,7 @@ html_pre = '''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 <head>
   <title>''' + title + '''</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <link rel="stylesheet" type="text/css" href="/paste.css" title="Clear"/>
-  <link rel="stylesheet" type="text/css" href="/paste-margin.css" title="Clear with margin"/>
-  <link rel="alternate stylesheet" type="text/css" href="/light-center.css" title="Light center design with a bit of css"/>
-  <link rel="alternate stylesheet" type="text/css" href="/dark.css" title="Dark"/>
-  <link rel="alternate stylesheet" type="text/css" href="/dark2.css" title="Alternative dark"/>
+  <link rel="stylesheet" type="text/css" href="/pastisserie.css" title="Past-isserie"/>
 </head>
 <body>'''
 
@@ -315,7 +312,7 @@ def view_index(handler):
     handler.content_type = 'text/html'
     handler.write(html_pre)
     handler.write('<h1>%s <span style="font-size: 12px">%s</span></h1>' %
-                  (title, doc))
+                  (htmltitle, doc))
     handler.write(body)
     handler.write(html_post)
 
@@ -394,6 +391,10 @@ application = tornado.web.Application([
     (r"/raw/([^&]+)", RawHandler),
     (r"/raw/([^/]+)/([^&]+)", UserRawHandler),
     (r"/([a-zA-Z0-9\-]+\.css)", tornado.web.StaticFileHandler,
+     dict(path=dirname(__file__))),
+    (r"/(header.png)", tornado.web.StaticFileHandler,
+     dict(path=dirname(__file__))),
+    (r"/(paste.sh)", tornado.web.StaticFileHandler,
      dict(path=dirname(__file__))),
     # Those two routes should stay in last position to avoid conflicts
     # with the other routes
