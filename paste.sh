@@ -9,7 +9,7 @@ if [ "$#" -lt 1 ] ; then
     exit
 fi
 
-pastebin_url="http://paste.awesom.eu"
+pastebin_url="https://paste.isomorphis.me"
 user=""
 copy=""
 lang=""

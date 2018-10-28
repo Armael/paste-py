@@ -1,10 +1,13 @@
 * paste-py
-paste-py is a dead simple paste service written in Python. An
-instance is running at [[http://paste.awesom.eu]].
+paste-py is a dead simple paste service written in Python.
+
+This branch is the code for the (slightly) modified version running at
+[[https://paste.isomorphis.me]]. The original instance runs at
+[[http://paste.awesom.eu]].
 
 * Using it
 ** Script
-The most useful utility is the [[https://raw.github.com/acieroid/paste-py/master/paste.sh][paste.sh]] script: save it somewhere
+The most useful utility is the [[https://raw.github.com/Armael/paste-py/pastisserie/paste.sh][paste.sh]] script: save it somewhere
 in your path and use it as follows:
   - =paste.sh foo= will paste the content of the file =foo= and
     return the URL of the paste
