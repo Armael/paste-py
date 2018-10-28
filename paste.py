@@ -392,9 +392,8 @@ application = tornado.web.Application([
     (r"/raw/([^/]+)/([^&]+)", UserRawHandler),
     (r"/([a-zA-Z0-9\-]+\.css)", tornado.web.StaticFileHandler,
      dict(path=dirname(__file__))),
-    (r"/(header.png)", tornado.web.StaticFileHandler,
-     dict(path=dirname(__file__))),
-    (r"/(paste.sh)", tornado.web.StaticFileHandler,
+    (r"/(header.png|paste.sh|robots.txt)",
+     tornado.web.StaticFileHandler,
      dict(path=dirname(__file__))),
     # Those two routes should stay in last position to avoid conflicts
     # with the other routes
