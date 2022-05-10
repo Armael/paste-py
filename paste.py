@@ -241,6 +241,7 @@ def view_paste(paste, args, handler):
     post = ''
     paste_content = read_paste(filename_path + '/' + paste)
     meta = read_meta(None, paste)
+    handler.set_header('X-Robots-Tag', 'noindex')
     if 'raw' in args:
         handler.set_header('Content-Type', 'text/plain; charset=utf-8')
         handler.write(paste_content)
