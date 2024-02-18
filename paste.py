@@ -137,7 +137,7 @@ def user_dir(user):
 
 def random_filename():
     res = ''
-    for i in xrange(filename_length):
+    for i in range(filename_length):
         res += choice(filename_characters)
     return res
 
