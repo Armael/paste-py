@@ -162,14 +162,14 @@ def new_path(user):
 
 def dump_paste(content, user):
     filename = new_path(user)
-    with codecs.open(filename, 'w', 'utf-8') as f:
+    with codecs.open(filename, 'wb', 'utf-8') as f:
         f.write(content)
     return filename
 
 ## Users
 def read_paste(filename):
     try:
-        with codecs.open(filename, 'r', 'utf-8') as f:
+        with codecs.open(filename, 'rb', 'utf-8') as f:
             return f.read()
     except IOError:
       raise tornado.web.HTTPError(404)
@@ -194,14 +194,14 @@ def meta_dir(user, paste):
 
 def dump_meta(user, paste, meta):
     filename = meta_dir(user, paste)
-    with open(filename, 'w') as f:
+    with open(filename, 'wb') as f:
         dump(meta, f)
 
 def read_meta(user, paste):
     filename = meta_dir(user, paste)
     if not isfile(filename):
         return {}
-    with open(filename, 'r') as f:
+    with open(filename, 'rb') as f:
         return load(f)
 
 ## Logic
