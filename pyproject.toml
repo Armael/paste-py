@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "paste-py"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.org"
+packages = [
+  { include = "./paste.py" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+tornado = "6.3.3"
+Pygments = "2.15.0"
+
+[tool.poetry.scripts]
+paste-py = 'paste:run'
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
