@@ -6,6 +6,10 @@ authors = ["Your Name <you@example.com>"]
 readme = "README.org"
 packages = [
   { include = "./paste.py" },
+  { include = "./pastisserie.css" },
+  { include = "./header.png" },
+  { include = "./robots.txt" },
+  { include = "./paste.sh" },
 ]
 
 [tool.poetry.dependencies]
