@@ -2,7 +2,7 @@
   description = "Paste-py";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/2c15aa59df0017ca140d9ba302412298ab4bf22a";
     poetry2nix.url = "github:nix-community/poetry2nix";
   };
 
